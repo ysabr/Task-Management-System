@@ -23,26 +23,15 @@
 // }
 
 // export default App;
-import React, { useEffect, useState } from 'react';
-import { fetchTasks } from './services/api';
+// src/App.js
+
+import React from 'react';
+import TaskList from './components/TaskList';
 
 function App() {
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    fetchTasks().then(data => setTasks(data));
-  }, []);
-
   return (
-    <div>
-      <h1>Tasks</h1>
-      <ul>
-        {tasks.map(t => (
-          <li key={t.id}>
-            {t.title} - {t.completed ? 'Done' : 'Not Done'}
-          </li>
-        ))}
-      </ul>
+    <div className="App">
+      <TaskList />
     </div>
   );
 }
